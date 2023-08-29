@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Take The Baby Sleep Quiz Now</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<style type="text/css">
+		#topbar p {
+			font-size: 18px;
+		}
+	</style>
+</head>
+<body class="text-center">
+	<div class="bodywrapper">
+		<div class="container-fluid">
+			<div class="row" id="topbar">
+				<div class="col">
+					<p>FREE 30-SECOND BABY SLEEP ASSESSMENT</p>
+				</div>
+			</div>
+			<div class="row" id="maincontent">
+				<div class="col">
+					<h1 class="endhide" style="font-size: 24px;line-height: 30px;">Take 30 seconds to answer these questions and find out if this baby sleep plan is right for you...</h1>
+					<div id="quizcontent">
+						<div id="questionone">
+							<p class="number">Question #1:</p>
+							<p class="thequestion">How old is your baby?</p>
+							<p><a href="#" class="btn btn-primary btn-lg btn-custom btn-block">Younger than 6 months</a></p>
+							<p><a href="#" class="btn btn-primary btn-lg btn-custom btn-block">Older than 6 months</a></p>
+						</div>
+						<div id="questiontwo">
+							<p class="number">Question #2:</p>
+							<p class="thequestion">Did your baby used to sleep through?</p>
+							<p><a href="#" class="btn btn-primary btn-lg btn-custom btn-block">Yes</a></p>
+							<p><a href="#" class="btn btn-primary btn-lg btn-custom btn-block">No</a></p>
+						</div>
+						<div id="questionthree">
+							<p class="number">Question #3:</p>
+							<p class="thequestion">Many sleepless nights per week to you  face?</p>
+							<p><a href="#" class="btn btn-primary btn-lg btn-custom btn-block">More than 5</a></p>
+							<p><a href="#" class="btn btn-primary btn-lg btn-custom btn-block">Less than 5</a></p>
+						</div>
+						<div id="scanning">
+							<p class="number" style="margin-bottom: 10px;">Evaluating your answers...</p>
+							<p style="font-size: 60px;"><i class="fas fa-spinner fa-pulse"></i></p>
+						</div>
+						<div id="scanningtwo">
+							<p class="number" style="margin-bottom: 10px;">Checking your case...</p>
+							<p style="font-size: 60px;"><i class="fas fa-spinner fa-pulse"></i></p>
+						</div>
+						<div id="CTA">
+							<p class="number" style="margin-bottom: 25px;">CONGRATULATIONS! THIS SOLUTION CAN WORK FOR YOU!</p>
+							<p style="font-weight: 700;margin-bottom: 25px;">THERE ARE ONLY <span style="background-color: #FFFF00;color: #CC0000;">2</span> SPOTS LEFT!</p>
+							<p class="thequestion">Enter your email address below to claim your spot for this breakthrough <u>Baby Sleep Program...</u></p>
+							<form method="post" class="af-form-wrapper" accept-charset="UTF-8" action="https://www.aweber.com/scripts/addlead.pl">
+								<input type="hidden" name="meta_web_form_id" value="" />
+								<input type="hidden" name="meta_split_id" value="" />
+								<input type="hidden" name="listname" value="" />
+								<input type="hidden" name="redirect" value="#" id="" />
+								<input type="hidden" name="meta_redirect_onlist" value="#" />
+								<input type="hidden" name="meta_adtracking" value="" />
+								<input type="hidden" name="meta_message" value="1" />
+								<input type="hidden" name="meta_required" value="email" />
+								<input type="hidden" name="meta_tooltip" value="" />
+								<div class="form-group">
+									<input name="email" id="awf_field-102163494" type="email" class="form-control emailinput" placeholder="Enter your best email...">
+								</div>
+								<input name="submit" type="submit" class="btn btn-primary btn-lg btn-custom btn-block" value="GET ACCESS">
+								<small id="emailHelp" class="form-text text-muted" style="margin-bottom: 25px;"><i class="fas fa-lock"></i> We'll never share your email with anyone else.</small>
+							</form>
+							<p class="number" style="font-size: 22px;">YOUR SPOT EXPIRES IN: <span style="background-color: #FFFF00;color: #CC0000;"><span id="counter" class="timer"></span></span></p>
+							<p></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$("#questionone").click(function(){
+		  $("#questionone").fadeOut(1000);
+		  $("#questiontwo").delay(1000).fadeIn(1000);
+		});
+
+		$("#questiontwo").click(function(){
+		  $("#questiontwo").fadeOut(1000);
+		  $("#questionthree").delay(1000).fadeIn(1000);
+		});
+
+		$("#questionthree").click(function(){
+		  $("#questionthree").fadeOut(1000);
+		  $(".endhide").fadeOut(1000);
+		  $("#scanning").delay(1000).fadeIn(1000).delay(3000).fadeOut(1000);
+		  $("#scanningtwo").delay(6000).fadeIn(1000).delay(3000).fadeOut(1000);
+		  $("#CTA").delay(11000).fadeIn(1000);
+		  countdown(5);
+		});
+	</script>
+	<script type="text/javascript">
+		$('.marquee').marquee({
+		    //speed in milliseconds of the marquee
+		    duration: 11000,
+		    //gap in pixels between the tickers
+		    gap: 50,
+		    //time in milliseconds before the marquee will start animating
+		    delayBeforeStart: 0,
+		    //'left' or 'right'
+		    direction: 'left',
+		    //true or false - should the marquee be duplicated to show an effect of continues flow
+		    duplicated: true
+		});
+	</script>
+	<script type="text/javascript">
+		function countdown(minutes) {
+		    var seconds = 60;
+		    var mins = minutes
+		    function tick() {
+		        //This script expects an element with an ID = "counter". You can change that to what ever you want. 
+		        var counter = document.getElementById("counter");
+		        var current_minutes = mins-1
+		        seconds--;
+		        counter.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+		        if( seconds > 0 ) {
+		            setTimeout(tick, 1000);
+		        } else {
+		            if(mins > 1){
+		                countdown(mins-1);           
+		            }
+		        }
+		    }
+		    tick();
+		}
+	</script>
+</body>
+</html>
