@@ -63,6 +63,174 @@ src="https://www.facebook.com/tr?id=187480363398936&ev=PageView&noscript=1"
 
 
 
+
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    #reviewID{
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom: 70px;
+
+    }
+    .reviewRow{
+        width: 90%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: auto;
+        padding: 7px;
+    }
+    .reviewimg{
+        width: 350px;
+        height: auto;
+        margin: 30px auto;
+        display: block;
+        background-color: #fff;
+        padding: 20px;
+    }
+    .reviewRowItemRow{
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 5px;
+    }
+    .reviewItem{
+        width: 100%;
+        height: 240px !important;
+        float: left;
+        display: block;
+        border: 1px solid #77777726;
+        border-radius: 7px;
+        margin: 7px 2px;
+        transition: all .5s;
+        padding: 17px;
+        overflow: hidden;
+        background-color: #fff;
+    }
+    .reviewItem:hover{
+        box-shadow: 1px 1px 4px 0px #dad0d0;
+        cursor: pointer;
+    }
+
+
+    .opps{
+        display: grid;
+        grid-template-columns: 1fr 6fr;
+    }
+
+
+    .reviewItemSub_left{
+        width: 100%;
+        height: auto;
+        display: block;
+        float: left;
+        padding: 3px;
+    }
+    .reviewItemSub_right{
+        float: left;
+        width: 100%;
+        display: block;
+        padding: 10px 15px;
+    }
+    .reviewItemSub_left img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .reviewItemSub_right h2{
+        text-transform: uppercase;
+        color: #333;
+        font-size: 22px !important;
+    }
+    .reviewStart{
+        list-style: none;
+        margin: 0;
+    }
+    .reviewStart ul{
+        margin: 0;
+    }
+    .reviewStart li{
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+    .reviewStart li p{
+       color: gold;
+       font-size: 20px;
+    }
+    .reviewText{
+        width: 100%;
+        height: 98px;
+        display: block;
+        overflow: auto;
+        color: rgb(129, 127, 127);
+        padding-right: 5px;
+
+    }
+
+    @media only screen and (max-width: 1024px){
+        .reviewRowItemRow {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media only screen and (max-width: 768px){
+
+        .reviewItemSub_right h2 {
+            font-size: 18px !important;
+        }
+        .reviewItemSub_left img {
+            width: 40px;
+            height: 40px;
+        }
+        .reviewStart li p{
+            margin: 0;
+            padding: 0;
+        }
+    }
+    @media only screen and (max-width: 768px){
+        .reviewItem{
+            padding: 6px !important
+        }
+        .reviewItemSub_right{
+            padding: 10px 5px;
+        }
+        .reviewItemSub_right h2 {
+            font-size: 15px !important;
+        }
+        .reviewStart li p{
+            font-size: 15px;
+        }
+}
+
+@media only screen and (max-width: 425px){
+    .reviewRowItemRow {
+        grid-template-columns: 1fr;
+    }
+    .reviewText{
+        height: 120px !important;
+    }
+}
+
+
+     
+</style>
+
+
+    
+
   </head>
   <body class="page-template">
       <div class="d-flex w-100 h-100 mx-auto flex-column" id="pageWrap">
@@ -184,9 +352,776 @@ src="https://www.facebook.com/tr?id=187480363398936&ev=PageView&noscript=1"
 
 <br /><br />
 
-            <p>New & updated content coming soon!</p>
 
 <br />
+
+
+
+<section id="reviewID">
+    <div class="reviewRow">
+        <img src="assets/google-review.png" alt="review" class="reviewimg">
+        <div class="reviewRowItemRow">
+            <div class="reviewItem" >
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/1.jpg" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Stephen Davidson </h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Very helpful and very professional</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/2.jpg" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Chris Adams</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Bret is easy to work with and he takes care of my website needs so that I can concentrate on my business.  If I ever need a change, he is quick to respond.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviewItem">
+              <div class="opps">
+                <div class="reviewItemSub_left">
+                    <img src="assets/3.jpg" alt="">
+                </div>
+                <div class="reviewItemSub_right">
+                    <h2>Laurie Coen Mcgrath </h2>
+                    <ul class="reviewStart">
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                    </ul> 
+                    <p class="reviewText">I would highly recommend Bret. tune to your website He was very patient with me and did a beautiful job.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/4.jpg" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Tylar Street</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText"> Bret was amazing to deal with he literally walked me through every thing step by step. Made me feel confident I was going to have a nice website at a very affordable rate!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/5.jpg" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>John Melichar </h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Got our website up and running in a timely fashion. Communicated was responsive and very helpful through the process. leelanlandworks.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/6.jpg" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Brent Meyers</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Bret was top notch to work with. He successfully built a webpage for my business quickly and with great attention to detail. The finished product was well worth the investment. I highly recommend Bret!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/7.png" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Brian McFadden</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Fast response and attention to detail.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/8.jpg" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Jeff VanWingen </h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Bret is very responsive and helpful!  He put together a wonderful website for our medical practice.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/9.jpg" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Tom Isanhart</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Schrader Web Solutions is far better than the many Web design companies I have used in the past . The  company is efficient, innovative, reasonably priced and on time. Many designers tell you they can do your project, but 'Schrader" backs up their c!aims. I highly recommend them.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/10.jpg" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Sarah Hillman</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Bret is SUPER helpful and patient when explaining technical things that I would otherwise not understand. He is also prompt to respond, and does great work!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/11.jpg" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Kristin Johnson </h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Bret, with Schrader Web Solutions, is absolutely phenomenal! I have never worked with a designer who works as quickly and as accurately as he does. He will go above and beyond to be able to meet his customers wants/desires, and find a solution to any issues/problems they may have. 
+                            I have recommended Schrader Web Solutions to people in the past because of the wonderful experience our company has had with him, and I will continue to so in the future! =]</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/12.jpg" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Mike Jones</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText"></p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/13.png" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Joe Kozlowski</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Schrader Web Solutions did a great job building my real estate website!  Not only was Bret very responsive, he also worked with my brokerage to integrate home search functions with my Multiple Listing Service (MLS) so people can search for homes directly on my website.  He did a great job at a good price and his quick response times were greatly appreciated!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/14.png" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Mitch McMullen</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Bret created a new website for my business and it was an amazing experience. He was timely, kind, and professional throughout the entire process. He worked with me closely on the project and attended to all my needs and concerns. My new website is absolutely stunning thanks to Bret!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reviewItem">
+               <div class="opps">
+                <div class="reviewItemSub_left">
+                    <img src="assets/15.png" alt="">
+                </div>
+                <div class="reviewItemSub_right">
+                    <h2>Avery Excavating</h2>
+                    <ul class="reviewStart">
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                    </ul> 
+                    <p class="reviewText">Very happy with all of Bret's work.
+The value has easily paid for itself and will always have him take care of our website presence. Thank you!</p>
+                </div>
+               </div>
+            </div>
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/16.png" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Cathryn Moe</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Great to work with. Always timely in his response as well as completing work. Will definitely use again!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reviewItem">
+               <div class="opps">
+                <div class="reviewItemSub_left">
+                    <img src="assets/17.png" alt="">
+                </div>
+                <div class="reviewItemSub_right">
+                    <h2>Keelan McNulty</h2>
+                    <ul class="reviewStart">
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                    </ul> 
+                    <p class="reviewText">Schrader Web Solutions has been a huge success in my recent small business adventure.  Bret worked around my flexible timeline, was always available for assistance, and brought unique technical ideas to the table.</p>
+                </div>
+               </div>
+            </div>
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/18.png" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Brent Meyers</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Bret was top notch to work with. He successfully built a webpage for my business quickly and with great attention to detail. The finished product was well worth the investment. I highly recommend Bret!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/19.png" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Laurie McGrath</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">I am Very happy he's very patient. And makes everything look wonderful.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reviewItem">
+               <div class="opps">
+                <div class="reviewItemSub_left">
+                    <img src="assets/20.png" alt="">
+                </div>
+                <div class="reviewItemSub_right">
+                    <h2>Amanda VanderMeer</h2>
+                    <ul class="reviewStart">
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-star"></i></p>
+                        </li>
+                    </ul> 
+                    <p class="reviewText">Bret is great to work with for getting your website created and functioning how you want it too. He is quick to respond to inquiries for adding information to your website and gets the changes made in a timely manner.</p>
+                </div>
+               </div>
+            </div>
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/21.png" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Sal Randazzo</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Very Helpful. Schrader Web Solutions have helped me to grow my business. The amazing sales from the ecommerce and affiliate websites are like a ride in a rocketship.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/22.png" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>J F</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Bret did a fantastic job from start to finish on my new website would highly recommend him</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/23.png" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Brian Mcfadden</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Does great work!!! Great ideas that makes the website easy to read and navigate.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/24.png" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>TJ Shepherd</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">It was great to do business with Schrader Web Solutions. Did a great job, worked on my marketing and fixed a big glaring hole I didn't know I even had which was costing me lost revenue.
+
+                            Highly recommend contacting them if you need internet marketing websites and other digital marketing.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/25.png" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Tyler Severs</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText">Great work at good pricing
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="reviewItem">
+                <div class="opps">
+                    <div class="reviewItemSub_left">
+                        <img src="assets/26.png" alt="">
+                    </div>
+                    <div class="reviewItemSub_right">
+                        <h2>Brian Adams</h2>
+                        <ul class="reviewStart">
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-star"></i></p>
+                            </li>
+                        </ul> 
+                        <p class="reviewText"></p>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+    </div>
+</section>
+  
+
+
+
+
+          
 
 <h4 style="color: green;">Reach out to us now and we will be glad to discuss options and strategies for your business today!</h4>
 
@@ -194,6 +1129,12 @@ src="https://www.facebook.com/tr?id=187480363398936&ev=PageView&noscript=1"
     </div>
   </div>
 
+
+
+
+
+
+  
 </main>
 
 <footer class="nb-footer mt-auto">
