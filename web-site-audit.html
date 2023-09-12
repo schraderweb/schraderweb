@@ -178,42 +178,11 @@ src="https://www.facebook.com/tr?id=187480363398936&ev=PageView&noscript=1"
 
 <p>We also include a <b>phone stratgey call</b> with you to go over the details.</p>
 
-<p>Request this by calling me today! Your video audit will be emailed to you with-in (3) business days.</p>
-
-
-
-<div id="paypal-button-container"></div>
-<script src="https://www.paypal.com/sdk/js?client-id=AUX03HHiYGIHfSGjHtaHlKR4Vr7Q4gq0fjrl_o9y0q-yIXIq1RjaTCHQlA5mwyi3_9xUgYRqKbcOpgDY&currency=USD"></script>
-<script>
-    paypal.Buttons({
-        style: {
-            shape: 'rect',
-            color: 'gold',
-            layout: 'vertical',
-            label: 'paypal',
-            
-        },
-        createOrder: function(data, actions) {
-            return actions.order.create({
-                purchase_units: [{
-                    amount: {
-                        value: '100'
-                    }
-                }]
-            });
-        },
-        onApprove: function(data, actions) {
-            return actions.order.capture().then(function(details) {
-                alert('Transaction completed by ' + details.payer.name.given_name + '!');
-            });
-        }
-    }).render('#paypal-button-container');
-</script>
+<p>Request this by calling me today at (231) 620-3620! Your video audit will be emailed to you with-in (3) business days.</p>
 
 
 
 
-          </div>
     </div>
   </div>
 
