@@ -1,0 +1,731 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Helpful Videos: Learn And Benefit From Our Videos On Various Topics</title>
+
+  <!-- Custom fonts for this theme -->
+  <link href="vendor\fontawesome-free\css\all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Theme CSS -->
+  <link href="css\freelancer.min.css" rel="stylesheet">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+<!-- Style exit pop up -->
+<style>
+
+
+
+#content {
+    position: relative;
+    padding: 0;
+    top: 50%;
+    transform: translateY(100%);
+    text-align: center;
+    max-width: none;
+}
+          input, button {
+              -webkit-appearance: none;
+              border-radius: 0;
+              outline: none;
+              resize: none;
+               font-family: 'Roboto Slab', serif;
+              -webkit-font-smoothing: antialiased
+          }
+
+          p.button input{
+              display: inline-block;
+              background: #FFD800;
+              border: 0;
+              color: #000;
+              line-height: 1em;
+              font-weight: 400;
+              text-transform: uppercase;
+              cursor: pointer;
+              -moz-transition: background 0.3s;
+              -o-transition: background 0.3s;
+              -webkit-transition: background 0.3s;
+              transition: background 0.3s
+          }
+          p.button input:hover {
+              background: #FF9000
+          }
+          form {
+              display: inline-block;
+              margin-bottom: 31px
+          }
+
+          form input {
+              font: 300 18px/1em 'Roboto Slab', serif;
+              color: #000000
+          }
+
+          form input[type=text] {
+              background: #fff;
+              line-height: 1em;
+              border: 1px solid #d4d7da;
+              height: 50px
+          }
+
+          #news-signup{
+              position: fixed;
+              width: 100%;
+              visibility: hidden;
+              z-index: 10002;
+              top: 100px;
+              opacity: 0;
+              -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+              -webkit-transition: -webkit-transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+              transition: transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+          }
+          #news-signup .wrapper {
+              /*background: #252b33;*/
+              background: #948E99; 
+              background: -webkit-linear-gradient(to left, #252b33 , #2E1437);
+              background: linear-gradient(to left, #252b33 , #2E1437);
+              position: relative;
+              margin: 0 auto;
+              text-align: center;
+              -moz-border-radius: 3px;
+              box-shadow: 0px 1px 10px rgba(0,0,0,0.5);
+              width: 98%
+          }
+          #news-signup_bg {
+               visibility: hidden;
+               position: fixed;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100%;
+               background-color: #ffffff;
+               opacity: 0.4;
+               z-index: 10001;
+           }
+          #news-signup_close {
+              position: absolute;
+              left: 100%;
+              margin: 7px 0 0 -30px;
+              width: 20px;
+              height: 20px;
+              color: #fff;
+              opacity:0.3;
+              cursor: pointer;
+          }
+
+          #news-signup_close::before {
+              content: "×";
+              font: 400 26px/1em 'Roboto Slab', serif;
+          }
+
+          #news-signup_close:hover {
+              opacity:0.8;
+          }
+
+          #news-signup .newsletter-content {
+              padding: 100px 3px;
+              margin: 0 auto
+          }
+          #news-signup .newsletter-content h2 {
+               font: 300 24px/1em 'Roboto Slab', serif;
+              color: #fff;
+              text-align: center;
+              margin: 0 auto 15px
+          }
+          #news-signup .newsletter-content p {
+              margin: 0 auto 25px;
+              font: 300 16px/1em 'Roboto Slab', serif;
+              color: #7e8890
+          }
+          #news-signup .newsletter-content form {
+              margin: 0;
+              padding: 0;
+              width: 90%;
+          }
+
+          #news-signup .newsletter-content form p {
+              margin: 0 auto 10px
+          }
+
+          #news-signup .newsletter-content form p:not(.button) {
+              float: none;
+              width: 100%;
+          }
+
+          #news-signup .newsletter-content form p:not(.button) input {
+              width: 100%;
+              margin: 0;
+              padding: 12px 15px !important;
+              border-color: #d0d5d8
+          }
+
+          #news-signup .newsletter-content form .button {
+              float: none;
+              width: 100%
+          }
+
+          #news-signup .newsletter-content form .button input {
+              width: 100%;
+              padding: 20px 25px 18px !important;
+              font-size: 12px
+          }
+
+          #news-signup .newsletter-content p.footnote {
+              filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=50);
+              opacity: 0.8;
+              font: 100 11px 'Roboto Slab', serif;
+              color: #abb0b7;
+              margin-bottom: 0
+          }
+
+          @media screen and (min-width: 800px){
+
+              #news-signup .wrapper {
+                  width: 800px;
+                  margin: 7% auto;
+              }
+              #news-signup .newsletter-content form .button input {
+                  width: auto;
+                  margin: 0
+              }
+              #news-signup .newsletter-content form .button {
+                  float: left;
+                  width: auto;
+                  margin-left: 15px;
+              }
+              #news-signup .newsletter-content form {
+                  width: auto
+              }
+              #news-signup .newsletter-content form p {
+                  margin: 0 auto 15px
+              }
+              #news-signup .newsletter-content form p:not(.button) {
+                  float: left;
+                  width: auto
+              }
+              .newsletter-content form p:not(.button) input {
+                  width: 300px!important;
+                  margin: 0 15px 0 0
+              }
+          }
+
+
+
+</style>
+
+<!-- Style exit pop up -->
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div style="text-align: center;" class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Helpful Videos</a>
+     
+      
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+  
+
+  <!-- Portfolio Section -->
+  <section class="page-section portfolio" id="portfolio">
+    <div class="container">
+
+<br><br>
+
+<h2 style="text-align: center; color: red;">Discover How You Can Learn Anatomy & Physiology In 3 Days!</h2>
+
+<br>
+
+<script src="https://fast.wistia.com/embed/medias/dnmembopqi.jsonp" async=""></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async=""></script><div class="wistia_responsive_padding" style="padding:56.21% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_dnmembopqi videoFoam=true" style="height:100%;position:relative;width:100%"><div class="wistia_swatch" style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;"><img src="https://fast.wistia.com/embed/medias/dnmembopqi/swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" aria-hidden="true" onload="this.parentNode.style.opacity=1;"></div></div></div></div>
+
+
+
+      <!-- Portfolio Section Heading -->
+     
+<br><br>
+
+<h3 style="text-align: center;">Here is your chance to skip the struggle and learn anatomy and physiology fast and easy!</h3>
+
+<br><br>
+
+<ul>
+
+<li>Cover Hundreds of Medical Topics Spanning Over 3000+ Pages</li>
+
+
+
+	
+<li>Detailed Illustrations With Labels To Aid Your Comprehension - And Boost Your Retention</li>
+
+	
+<li>Idiot Proof Coverage Of Every Region & System In The Body and Identify Specific Muscle Groups and Their Functions</li>
+
+	
+<li>Simple Explanations of Cell Structures & Body Tissue and Review Key Anatomy & Physiology Concepts</li>
+
+	
+<li>Perfect For Medical Practitioners, Students, Educators, Injury Law Attorneys, 
+Chiropractors, Therapists, Nurses and Paramedics</li>
+
+	
+<li>No Prior Medical Training Is Required</li>
+
+	
+<li>Computer Printable So That You Can Read On The Go</li>
+
+
+</ul>
+
+
+
+<center><img src="img\enter-email-arrow.png"></center>
+
+
+ <br>
+
+
+<script type="text/javascript" src="https://form.jotform.com/jsform/200493816793160"></script>
+
+
+  </div>
+  </section>
+
+
+
+
+ 
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+
+        <!-- Footer Location -->
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Location</h4>
+          <p class="lead mb-0">1568 State St. Box #7
+            <br>Grawn, MI 49637</p>
+        </div>
+
+        <!-- Footer Social Icons -->
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Around the Web</h4>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/anatomystudyguide/">
+            <i class="fab fa-fw fa-facebook-f"></i>
+          </a>
+          
+        </div>
+
+        <!-- Footer About Text -->
+        <div class="col-lg-4">
+          <h4 class="text-uppercase mb-4">About Us</h4>
+          <p class="lead mb-0">Sharing useful and informative videos that help make your life easier!
+            </p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Copyright Section -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <p>Copyright &copy; 2020 HelpfulVideos.net</p>
+    </div>
+  </section>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+
+
+
+  <div id="news-signup">
+    <div class="wrapper">
+      <div id="news-signup_close"></div>
+      <div class="newsletter-content" id="phplistsubscriberesult">
+        <h2>Social media, Hacks & Security news. Delivered weekly.</h2>
+
+        <p>Join thousands of readers who get our content first.</p>
+        <form class="signup-form" id="signup-form" action="https://ashwinco.hosted.phplist.com/lists/?p=subscribe&id=1">
+          <p>
+            <input type="text" name="email" id="news_signup_email" value="" autofocus>
+          </p>
+          <p class="button">
+            <input type="submit" value="Subscribe">
+          </p>
+        </form>
+        <p class="footnote">Give it a try. It only takes a click to unsubscribe.</p>
+      </div>
+    </div>
+  </div>
+ 
+
+
+<!-- Example page JS        --> 
+<!-- Used to fire the modal --> 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46156385-1', 'cssscript.com');
+  ga('send', 'pageview');
+  
+  
+   // code  exit popup
+  window.bioEp = {
+  // Private variables
+  bgEl: {},
+  popupEl: {},
+  closeBtnEl: {},
+  shown: false,
+  overflowDefault: "visible",
+
+  // Popup options
+  html: "",
+  css: "",
+  fonts: [],
+  delay: 2,
+  showOnDelay: false,
+  cookieExp: 30,
+
+  // Object for handling cookies, taken from QuirksMode
+  // https://www.quirksmode.org/js/cookies.html
+  cookieManager: {
+    // Create a cookie
+    create: function(name, value, days) {
+      var expires = "";
+
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+      }
+
+      document.cookie = name + "=" + value + expires + "; path=/";
+    },
+
+    // Get the value of a cookie
+    get: function(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(";");
+
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == " ") c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+      }
+
+      return null;
+    },
+
+    // Delete a cookie
+    erase: function(name) {
+      this.create(name, "", -1);
+    }
+  },
+
+  // Handle the bioep_shown cookie
+  // If present and true, return true
+  // If not present or false, create and return false
+  checkCookie: function() {
+    // Handle cookie reset
+    if (this.cookieExp <= 0) {
+      this.cookieManager.erase("bioep_shown");
+      return false;
+    }
+
+    // If cookie is set to true
+    if (this.cookieManager.get("bioep_shown") == "true")
+      return true;
+
+    // Otherwise, create the cookie and return false
+    this.cookieManager.create("bioep_shown", "true", this.cookieExp);
+
+    return false;
+  },
+
+  // Add font stylesheets and CSS for the popup
+  addCSS: function() {
+    // Add font stylesheets
+    for (var i = 0; i < this.fonts.length; i++) {
+      var font = document.createElement("link");
+      font.href = this.fonts[i];
+      font.type = "text/css";
+      font.rel = "stylesheet";
+      font.rel = "stylesheet";
+      document.head.appendChild(font);
+    }
+
+  },
+
+  // Add the popup to the page
+  addPopup: function() {
+    // Add the background div
+    this.bgEl = document.createElement("div");
+    this.bgEl.id = "news-signup_bg";
+    document.body.appendChild(this.bgEl);
+
+    // Add the popup
+    if (document.getElementById("news-signup"))
+      this.popupEl = document.getElementById("news-signup");
+    else {
+      this.popupEl = document.createElement("div");
+      this.popupEl.id = "news-signup";
+      this.popupEl.innerHTML = this.html;
+      document.body.appendChild(this.popupEl);
+    }
+  },
+
+  // Show the popup
+  showPopup: function() {
+    if (this.shown) return;
+
+    this.bgEl.style.visibility = "visible";
+    this.popupEl.style.visibility = "visible";
+    this.popupEl.style.opacity = "1";
+    this.popupEl.style.transform = "scale(1)";
+    this.popupEl.style.webkitTransform = "scale(1)";
+    this.popupEl.style.transition = "0.4s, opacity 0.4s";
+    this.popupEl.style.webkitTransform = "0.4s, opacity 0.4s";
+    
+    // Save body overflow value and hide scrollbars
+    this.overflowDefault = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    this.shown = true;
+  },
+
+  // Hide the popup
+  hidePopup: function() {
+    this.bgEl.style.visibility = "hidden";
+    this.popupEl.style.visibility = "hidden";
+    this.popupEl.style.opacity = "0";
+    this.popupEl.style.transform = "scale(0.5)";
+    this.popupEl.style.webkitTransform = "scale(0.5)";
+    this.popupEl.style.transition = "0.2s, opacity 0.2s, visibility 0s 0.2s";
+    this.popupEl.style.webkitTransform = "0.2s, opacity 0.2s, visibility 0s 0.2s";
+    document.body.style.overflow = this.overflowDefault;
+  },
+
+  // Event listener initialisation for all browsers
+  addEvent: function(obj, event, callback) {
+    if (obj.addEventListener)
+      obj.addEventListener(event, callback, false);
+    else if (obj.attachEvent)
+      obj.attachEvent("on" + event, callback);
+  },
+
+  // Load event listeners for the popup
+  loadEvents: function() {
+    // Track mouseout event on document
+    this.addEvent(document, "mouseout", function(e) {
+      e = e ? e : window.event;
+      var from = e.relatedTarget || e.toElement;
+
+      // Reliable, works on mouse exiting window and user switching active program
+      if (!from || from.nodeName === "HTML")
+        bioEp.showPopup();
+    });
+
+    // Handle the popup close button
+    this.closebtn = document.getElementById("news-signup_close");
+    this.addEvent(this.closebtn, "click", function() {
+      bioEp.hidePopup();
+    });
+  },
+
+  // Set user defined options for the popup
+  setOptions: function(opts) {
+    this.html = (typeof opts.html === 'undefined') ? this.html : opts.html;
+    this.css = (typeof opts.css === 'undefined') ? this.css : opts.css;
+    this.fonts = (typeof opts.fonts === 'undefined') ? this.fonts : opts.fonts;
+    this.delay = (typeof opts.delay === 'undefined') ? this.delay : opts.delay;
+    this.showOnDelay = (typeof opts.showOnDelay === 'undefined') ? this.showOnDelay : opts.showOnDelay;
+    this.cookieExp = (typeof opts.cookieExp === 'undefined') ? this.cookieExp : opts.cookieExp;
+  },
+
+  // Ensure the DOM has loaded
+  domReady: function(callback) {
+    (document.readyState === "interactive" || document.readyState === "complete") ? callback(): this.addEvent(document, "DOMContentLoaded", callback);
+  },
+
+  // Initialize
+  init: function(opts) {
+    // Handle options
+    if (typeof opts !== 'undefined')
+      this.setOptions(opts);
+
+    // Add CSS here to make sure user HTML is hidden regardless of cookie
+    this.addCSS();
+
+    // Once the DOM has fully loaded
+    this.domReady(function() {
+      // Handle the cookie
+      if (bioEp.checkCookie()) return;
+
+      // Add the popup
+      bioEp.addPopup();
+
+      // Load events
+      setTimeout(function() {
+        bioEp.loadEvents();
+
+        if (bioEp.showOnDelay)
+          bioEp.showPopup();
+      }, bioEp.delay * 1000);
+    });
+  }
+}
+
+window.onload = function() {
+  document.getElementById("news_signup_email").focus();
+};
+
+bioEp.init({
+              fonts: ['https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300'],
+              cookieExp: 0
+          });
+
+
+
+$(document).ready(function() {
+    var h = new Image();
+    h.src = waitImage;
+    $("#signup-form").submit(function() {
+        var d = $("#news_signup_email").val();
+        var e = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        var f = this.action;
+        ajaxaddress = f.replace(/subscribe/, 'asubscribe');
+        $('#signup-form').html('<img src="' + h.src + '" width="' + h.width + '" height="' + h.height + '" border="0" alt="Please wait" title="hacker9 newsletter" />');
+        if (e.test(d)) {
+            var g = $.ajax({
+                type: 'POST',
+                url: ajaxaddress,
+                crossDomain: true,
+                data: "email=" + d,
+                success: function(a, b, c) {
+                    if (a.search(/FAIL/) >= 0) {
+                        document.location = f + "&email=" + d
+                    } else {
+                        $('#phplistsubscriberesult').html("<div id='subscribemessage'></div>");
+                        $('#subscribemessage').html(a).hide().fadeIn(1500);
+                        $("#signup-form").hide();
+                        document.cookie = "phplistsubscribed=yes"
+                    }
+                },
+                error: function(a, b, c) {
+                    document.location = f + "&email=" + d
+                }
+            })
+        } else {
+            document.location = f + "&email=" + d
+        }
+        return false
+    });
+    $("#news_signup_email").val(pleaseEnter);
+    $("#news_signup_email").focus(function() {
+        var v = $("#news_signup_email").val();
+        if (v == pleaseEnter) {
+            $("#news_signup_email").val("")
+        }
+    });
+    $("#news_signup_email").blur(function() {
+        var v = $("#news_signup_email").val();
+        if (v == "") {
+            $("#emailaddress").val(pleaseEnter)
+        }
+    });
+    var i = document.cookie;
+    if (i.indexOf('phplistsubscribed=yes') >= 0) {
+        $("#signup-form").html(thanksForSubscribing)
+    }
+});
+$.ajaxTransport("+*", function(d, e, f) {
+    if (jQuery.browser.msie && window.XDomainRequest) {
+        var g;
+        return {
+            send: function(b, c) {
+                g = new XDomainRequest();
+                g.open("get", d.url + "&" + d.data);
+                g.onload = function() {
+                    if (this.contentType.match(/\/xml/)) {
+                        var a = new ActiveXObject("Microsoft.XMLDOM");
+                        a.async = false;
+                        a.loadXML(this.responseText);
+                        c(200, "success", [a])
+                    } else {
+                        c(200, "success", [this.responseText])
+                    }
+                };
+                g.ontimeout = function() {
+                    c(408, "error", ["The request timed out."])
+                };
+                g.onerror = function() {
+                    c(404, "error", ["The requested resource could not be found."])
+                };
+                g.send()
+            },
+            abort: function() {
+                if (g) g.abort()
+            }
+        }
+    }
+});
+if (pleaseEnter == undefined) {
+    var pleaseEnter = "Enter your email"
+}
+if (thanksForSubscribing == undefined) {
+    var thanksForSubscribing = '<div class="subscribed">Thanks for subscribing. Please click the link in the confirmation email you will receive.</div>'
+}
+if (waitImage == undefined) {
+    var waitImage = 'https://s3.amazonaws.com/phplist/img/busy.gif'
+}
+  
+  
+
+
+
+</script>
+
+ 
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor\jquery\jquery.min.js"></script>
+  <script src="vendor\bootstrap\js\bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor\jquery-easing\jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js\jqBootstrapValidation.js"></script>
+  <script src="js\contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js\freelancer.min.js"></script>
+
+</body>
+
+</html>
