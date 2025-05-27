@@ -53,7 +53,7 @@
 
 <script>
 
-  const headlineSelector = "Get A Custom Web Site In {City}";
+  const headlineSelector = "#headline";
 
   const apiKey = 'a3bf1f9cdb6a48d6af83881a0ce3eebe';
 
@@ -221,7 +221,10 @@ fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=${apiKey}`)
       <div class="row">
         <div class="col-md-12">
           <div class="starter-template">
-            <h1>Get A Custom Web Site In {City}</h1>
+
+            <div id="headline">Welcome visitor from {city}!</div>            
+            
+            
             <p>We are a small team of experts that are passionate about the success and growth of your business!</p>
 
             <p>We are located in the Traverse City, Michigan area and proudly serve businesses throughout the state and
