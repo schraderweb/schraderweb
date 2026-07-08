@@ -16,10 +16,6 @@ SUPABASE_TABLE = os.getenv("SUPABASE_TABLE", "form_submissions")
 required = {
     "SUPABASE_URL": SUPABASE_URL,
     "SUPABASE_KEY": SUPABASE_KEY,
-    "TWILIO_ACCOUNT_SID": TWILIO_ACCOUNT_SID,
-    "TWILIO_AUTH_TOKEN": TWILIO_AUTH_TOKEN,
-    "TWILIO_PHONE_NUMBER": TWILIO_PHONE_NUMBER,
-    "BUSINESS_OWNER_PHONE": BUSINESS_OWNER_PHONE,
 }
 
 missing = [k for k, v in required.items() if not v]
@@ -27,20 +23,31 @@ if missing:
     raise RuntimeError("Missing environment variables: " + ", ".join(missing))
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
-twilio_client = TwilioClient(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+
+TWILIO_ENABLED = bool(
+    TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN and TWILIO_PHONE_NUMBER
+)
+twilio_client = (
+    TwilioClient(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN) if TWILIO_ENABLED else None
+)
 
 
 def normalize_phone(value: str) -> str:
     return str(value or "").strip()
 
 
-def send_sms(to_number: str, body: str) -> str:
-    message = twilio_client.messages.create(
-        body=body,
-        from_=TWILIO_PHONE_NUMBER,
-        to=to_number,
-    )
-    return message.sid
+def send_sms(to_number: str, body: str):
+    if not TWILIO_ENABLED or not to_number:
+        return None
+    try:
+        message = twilio_client.messages.create(
+            body=body,
+            from_=TWILIO_PHONE_NUMBER,
+            to=to_number,
+        )
+        return message.sid
+    except Exception:
+        return None
 
 
 @app.get("/")
@@ -88,7 +95,7 @@ def submit_form():
             f"Phone: {phone}\n"
             f"Email: {email or 'N/A'}\n"
             f"Message: {message_text or 'N/A'}"
-        )
+        ) if BUSINESS_OWNER_PHONE else None
 
         return jsonify({
             "success": True,
