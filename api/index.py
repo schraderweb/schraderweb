@@ -7,10 +7,6 @@ app = Flask(__name__)
 
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
-TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
-TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
-TWILIO_PHONE_NUMBER = os.getenv("TWILIO_PHONE_NUMBER")
-BUSINESS_OWNER_PHONE = os.getenv("BUSINESS_OWNER_PHONE")
 SUPABASE_TABLE = os.getenv("SUPABASE_TABLE", "form_submissions")
 
 required = {
