@@ -202,7 +202,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        overflow: hidden;
+        overflow: visible;
       }
 
       /* Multi-step panels */
@@ -214,8 +214,8 @@
         display: block;
       }
       @keyframes stepSlideIn {
-        from { opacity: 0; transform: translateX(30px); }
-        to   { opacity: 1; transform: translateX(0); }
+        from { opacity: 0; }
+        to   { opacity: 1; }
       }
 
       /* Success state — Apple-style */
@@ -391,10 +391,7 @@
           view-transition-name: info-panel;
         }
 
-        /* Keep form card static/morphing while its contents cross-fade */
-        .contact-form-card {
-          view-transition-name: contact-form-card;
-        }
+
         
         /* Keep footer static/morphing */
         .nb-footer-contact {

@@ -210,7 +210,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        overflow: hidden;
+        overflow: visible;
       }
 
       /* Multi-step panels */
@@ -222,8 +222,8 @@
         display: block;
       }
       @keyframes stepSlideIn {
-        from { opacity: 0; transform: translateX(30px); }
-        to   { opacity: 1; transform: translateX(0); }
+        from { opacity: 0; }
+        to   { opacity: 1; }
       }
 
       /* Success state — Apple-style */
@@ -426,7 +426,7 @@
         outline: none;
         transition: box-shadow 0.2s;
         font-family: inherit;
-        width: 100%;
+        width: 80% !important;
         box-sizing: border-box !important;
       }
       .contact-input::placeholder {
@@ -439,8 +439,13 @@
       /* Select dropdown */
       .contact-select-wrapper {
         position: relative;
+        width: 80% !important;
       }
       .contact-select {
+        position: relative;
+        z-index: 2;
+        display: block !important;
+        margin: 0 !important;
         height: 55px;
         background: #fff;
         border: none !important;
@@ -461,8 +466,13 @@
       .contact-select:focus {
         box-shadow: 0 0 0 3px rgba(247,147,30,0.35);
       }
+      .contact-select option {
+        color: #1a2340 !important;
+        background-color: #ffffff !important;
+      }
       .contact-select option[value=""][disabled] {
         color: #a0aec0;
+        background-color: #ffffff !important;
       }
       .contact-select-arrow {
         position: absolute;
@@ -621,10 +631,7 @@
           view-transition-name: info-panel;
         }
 
-        /* Keep form card static/morphing while its contents cross-fade */
-        .contact-form-card {
-          view-transition-name: contact-form-card;
-        }
+
         
         /* Keep footer static/morphing */
         .nb-footer-contact {
@@ -865,41 +872,41 @@ src="https://www.facebook.com/tr?id=187480363398936&ev=PageView&noscript=1"
         </div>
 
         <!-- Form -->
-        <form id="contactForm" class="contact-form" action="#" method="post" novalidate>
+        <form id="contactForm" class="contact-form" action="#" method="post" novalidate autocomplete="off">
 
           <!-- Step 1: Contact Info -->
           <div class="contact-step-panel active" id="step1">
-            <!-- Row 1: First + Last Name -->
-            <div class="contact-form-row">
-              <div class="contact-form-group">
-                <label class="contact-label">First Name <span class="contact-required">*</span></label>
-                <input type="text" id="contactFirstName" name="firstName" class="contact-input" placeholder="First Name" required>
-              </div>
-              <div class="contact-form-group">
-                <label class="contact-label">Last Name <span class="contact-required">*</span></label>
-                <input type="text" id="contactLastName" name="lastName" class="contact-input" placeholder="Last Name" required>
-              </div>
+            <!-- First Name -->
+            <div class="contact-form-group contact-form-group--full">
+              <label class="contact-label">First Name <span class="contact-required">*</span></label>
+              <input type="text" id="contactFirstName" name="firstName" class="contact-input" placeholder="First Name" required autocomplete="off">
             </div>
 
-            <!-- Row 2: Phone + Email -->
-            <div class="contact-form-row">
-              <div class="contact-form-group">
-                <label class="contact-label">Phone <span class="contact-required">*</span></label>
-                <input type="tel" id="contactPhone" name="phone" class="contact-input" placeholder="(231) 620-3620" required>
-              </div>
-              <div class="contact-form-group">
-                <label class="contact-label">Email <span class="contact-required">*</span></label>
-                <input type="email" id="contactEmail" name="email" class="contact-input" placeholder="you@example.com" required>
-              </div>
+            <!-- Last Name -->
+            <div class="contact-form-group contact-form-group--full">
+              <label class="contact-label">Last Name <span class="contact-required">*</span></label>
+              <input type="text" id="contactLastName" name="lastName" class="contact-input" placeholder="Last Name" required autocomplete="off">
             </div>
 
-            <!-- Row 3: Company -->
+            <!-- Phone -->
+            <div class="contact-form-group contact-form-group--full">
+              <label class="contact-label">Phone <span class="contact-required">*</span></label>
+              <input type="tel" id="contactPhone" name="phone" class="contact-input" placeholder="(231) 620-3620" required autocomplete="off">
+            </div>
+
+            <!-- Email -->
+            <div class="contact-form-group contact-form-group--full">
+              <label class="contact-label">Email <span class="contact-required">*</span></label>
+              <input type="email" id="contactEmail" name="email" class="contact-input" placeholder="you@example.com" required autocomplete="off">
+            </div>
+
+            <!-- Company -->
             <div class="contact-form-group contact-form-group--full">
               <label class="contact-label">Company / Organization</label>
-              <input type="text" id="contactCompany" name="company" class="contact-input" placeholder="Your Company">
+              <input type="text" id="contactCompany" name="company" class="contact-input" placeholder="Your Company" autocomplete="off">
             </div>
 
-            <!-- Row 4: Service Dropdown -->
+            <!-- Service Dropdown -->
             <div class="contact-form-group contact-form-group--full">
               <label class="contact-label">How can we help you?</label>
               <div class="contact-select-wrapper">
