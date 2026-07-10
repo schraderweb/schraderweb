@@ -5,7 +5,11 @@ from supabase import create_client
 import resend
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=[
+    "https://schrader.co",
+    "https://www.schrader.co",
+    "https://schraderweb-azure.vercel.app"
+])
 
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
@@ -121,12 +125,16 @@ Service: {submission.get('service', 'N/A')}"""
     return html_result or vtext_result
 
 
-@app.get("/")
+@app.route("/", methods=["GET"])
+@app.route("/api", methods=["GET"])
+@app.route("/api/", methods=["GET"])
 def home():
     return jsonify({"ok": True, "message": "Form API is running"})
 
 
-@app.post("/")
+@app.route("/", methods=["POST"])
+@app.route("/api", methods=["POST"])
+@app.route("/api/", methods=["POST"])
 def submit_form():
     try:
         data = request.get_json(silent=True) or request.form.to_dict() or {}
