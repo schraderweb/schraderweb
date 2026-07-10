@@ -594,6 +594,43 @@
           font-size: 38px;
         }
       }
+
+      /* ===== VIEW TRANSITION API ENHANCEMENT ===== */
+      @media (prefers-reduced-motion: no-preference) {
+        @view-transition {
+          navigation: auto;
+        }
+
+        /* Keep header fully static/morphing across page transitions */
+        #header.custom-navbar {
+          view-transition-name: main-header;
+        }
+
+        /* Keep background static across page transitions */
+        .contact-bg-img {
+          view-transition-name: contact-bg;
+        }
+
+        /* Keep gradient overlay static */
+        .contact-gradient-overlay {
+          view-transition-name: contact-overlay;
+        }
+
+        /* Keep left/right info panel static/morphing */
+        .contact-info-panel {
+          view-transition-name: info-panel;
+        }
+
+        /* Keep form card static/morphing while its contents cross-fade */
+        .contact-form-card {
+          view-transition-name: contact-form-card;
+        }
+        
+        /* Keep footer static/morphing */
+        .nb-footer-contact {
+          view-transition-name: main-footer;
+        }
+      }
     </style>
 
 
