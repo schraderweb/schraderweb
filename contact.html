@@ -921,8 +921,8 @@ src="https://www.facebook.com/tr?id=187480363398936&ev=PageView&noscript=1"
             <!-- Consent -->
             <div class="contact-consent">
               <label class="contact-consent-label">
-                <input type="checkbox" id="contactConsent" name="consent" class="contact-checkbox">
-                <span class="contact-consent-text">I agree to receive important updates and information from Schrader.</span>
+                <input type="checkbox" id="contactConsent" name="consent" class="contact-checkbox" required>
+                <span class="contact-consent-text">I agree to receive important updates and information from Schrader. <span class="contact-required">*</span></span>
               </label>
               <div class="contact-consent-links">
                 <a href="/privacy-policy.html">Privacy Policy</a>
@@ -1311,9 +1311,9 @@ Contact us today for a no-cost discovery call!</h4>
     }
 
     nextBtn.addEventListener('click', function() {
-      var required = step1.querySelectorAll('[required]');
+      var requiredFields = step1.querySelectorAll('input[required]:not([type="checkbox"]), textarea[required], select[required]');
       var valid = true;
-      required.forEach(function(field) {
+      requiredFields.forEach(function(field) {
         if (!field.value.trim()) {
           field.style.boxShadow = '0 0 0 3px rgba(255,80,80,0.5)';
           valid = false;
@@ -1323,6 +1323,20 @@ Contact us today for a no-cost discovery call!</h4>
           }, { once: true });
         }
       });
+
+      // Validate the consent checkbox
+      var consentCheckbox = document.getElementById('contactConsent');
+      if (consentCheckbox && !consentCheckbox.checked) {
+        valid = false;
+        consentCheckbox.style.outline = '3px solid rgba(255,80,80,0.8)';
+        consentCheckbox.style.outlineOffset = '2px';
+        consentCheckbox.addEventListener('change', function handler() {
+          consentCheckbox.style.outline = '';
+          consentCheckbox.style.outlineOffset = '';
+          consentCheckbox.removeEventListener('change', handler);
+        }, { once: true });
+      }
+
       if (!valid) return;
       goToStep(2);
     });
