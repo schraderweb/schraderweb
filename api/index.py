@@ -12,6 +12,7 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 SUPABASE_TABLE = os.getenv("SUPABASE_TABLE", "form_submissions")
 RESEND_API_KEY = os.getenv("RESEND_API_KEY")
 NOTIFICATION_EMAIL = os.getenv("NOTIFICATION_EMAIL", "")
+VTEXT_EMAIL = os.getenv("VTEXT_EMAIL", "")
 EMAIL_FROM = os.getenv("EMAIL_FROM", "noreply@prakhargupta.me")
 
 required = {
@@ -30,39 +31,94 @@ if RESEND_API_KEY:
 
 
 def send_email_notification(submission: dict):
-    if not RESEND_API_KEY or not NOTIFICATION_EMAIL:
+    if not RESEND_API_KEY:
         return None
 
-    to_list = [e.strip() for e in NOTIFICATION_EMAIL.split(",") if e.strip()]
+    html_result = None
+    if NOTIFICATION_EMAIL:
+        to_list = [e.strip() for e in NOTIFICATION_EMAIL.split(",") if e.strip()]
+        if to_list:
+            service_formatted = str(submission.get('service', 'N/A')).replace('-', ' ').title()
+            consent_text = 'Consented' if submission.get('consent') else 'Declined'
+            consent_bg = '#e6f7ed' if submission.get('consent') else '#feebee'
+            consent_color = '#1e7e34' if submission.get('consent') else '#c82333'
 
-    html = f"""
-    <h2>New Form Submission</h2>
-    <table style="border-collapse:collapse;width:100%">
-      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:700">Name</td>
-          <td style="padding:8px;border:1px solid #ddd">{submission['first_name']} {submission['last_name']}</td></tr>
-      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:700">Phone</td>
-          <td style="padding:8px;border:1px solid #ddd">{submission['phone']}</td></tr>
-      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:700">Email</td>
-          <td style="padding:8px;border:1px solid #ddd">{submission.get('email', 'N/A')}</td></tr>
-      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:700">Company</td>
-          <td style="padding:8px;border:1px solid #ddd">{submission.get('company', 'N/A')}</td></tr>
-      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:700">Service</td>
-          <td style="padding:8px;border:1px solid #ddd">{submission.get('service', 'N/A')}</td></tr>
-      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:700">Consent</td>
-          <td style="padding:8px;border:1px solid #ddd">{'Yes' if submission.get('consent') else 'No'}</td></tr>
-    </table>
-    """
+            try:
+                template_path = os.path.join(os.path.dirname(__file__), 'email-form.html')
+                with open(template_path, 'r', encoding='utf-8') as f:
+                    template_content = f.read()
 
-    try:
-        response = resend.Emails.send({
-            "from": EMAIL_FROM,
-            "to": to_list,
-            "subject": f"New Support Form Submission - {submission['first_name']} {submission['last_name']}",
-            "html": html,
-        })
-        return response
-    except Exception:
-        return None
+                budget_section = ""
+                if submission.get("budget_range"):
+                    budget_section = f"""
+                    <h3 style="color: #0b1c3f; margin-top: 24px; margin-bottom: 12px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em;">Project Budget</h3>
+                    <div style="background-color: #f8fafc; border-left: 4px solid #ff9500; padding: 12px 16px; font-size: 14px; font-weight: 600; color: #1e293b; border-radius: 0 4px 4px 0;">
+                      {submission['budget_range']}
+                    </div>
+                    """
+
+                message_section = ""
+                if submission.get("message"):
+                    message_section = f"""
+                    <h3 style="color: #0b1c3f; margin-top: 28px; margin-bottom: 12px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em;">Project Details / Message</h3>
+                    <div style="background-color: #f8fafc; border-left: 4px solid #0b1c3f; padding: 16px; font-size: 14px; color: #334155; border-radius: 0 4px 4px 0; white-space: pre-wrap; font-style: italic; line-height: 1.5;">
+                      "{submission['message']}"
+                    </div>
+                    """
+
+                html = template_content.format(
+                    name=f"{submission['first_name']} {submission['last_name']}",
+                    phone=submission['phone'],
+                    email=submission.get('email', 'N/A'),
+                    email_raw=submission.get('email', ''),
+                    company=submission.get('company') or 'N/A',
+                    service=service_formatted,
+                    consent_bg=consent_bg,
+                    consent_color=consent_color,
+                    consent_text=consent_text,
+                    budget_section=budget_section,
+                    message_section=message_section
+                )
+
+                html_result = resend.Emails.send({
+                    "from": EMAIL_FROM,
+                    "to": to_list,
+                    "subject": f"New Lead: {submission['first_name']} {submission['last_name']} - {service_formatted}",
+                    "html": html,
+                })
+            except Exception as e:
+                import sys
+                print(f"Error sending HTML notification: {e}", file=sys.stderr)
+
+    vtext_result = None
+    if VTEXT_EMAIL:
+        vtext_list = [e.strip() for e in VTEXT_EMAIL.split(",") if e.strip()]
+        if vtext_list:
+            # Structured, clean plain text message tailored for vtext/SMS viewability and character limits
+            plain_text = f"""New Lead:
+Name: {submission['first_name']} {submission['last_name']}
+Phone: {submission['phone']}
+Email: {submission.get('email', 'N/A')}
+Company: {submission.get('company', 'N/A')}
+Service: {submission.get('service', 'N/A')}"""
+
+            if submission.get("budget_range"):
+                plain_text += f"\nBudget: {submission['budget_range']}"
+            if submission.get("message"):
+                plain_text += f"\nMsg: {submission['message']}"
+
+            try:
+                vtext_result = resend.Emails.send({
+                    "from": EMAIL_FROM,
+                    "to": vtext_list,
+                    "subject": "New Lead",
+                    "text": plain_text,
+                })
+            except Exception as e:
+                import sys
+                print(f"Error sending SMS vtext notification: {e}", file=sys.stderr)
+
+    return html_result or vtext_result
 
 
 @app.get("/")
