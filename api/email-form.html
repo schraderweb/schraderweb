@@ -1,0 +1,54 @@
+<div style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f6f9fc; padding: 40px 20px; color: #333333; line-height: 1.6;">
+  <div style="max-width: 580px; margin: 0 auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.05); border: 1px solid #eef2f6;">
+    <!-- Header Banner -->
+    <div style="background: #0b1c3f; padding: 32px; text-align: center; border-bottom: 4px solid #ff9500;">
+      <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;">NEW LEAD CAPTURED</h1>
+      <p style="color: #a5b4fc; margin: 8px 0 0 0; font-size: 13px; font-weight: 500;">Schrader Web Solutions Form Submission</p>
+    </div>
+    
+    <!-- Body Content -->
+    <div style="padding: 32px;">
+      <h3 style="color: #0b1c3f; margin-top: 0; margin-bottom: 20px; font-size: 16px; border-bottom: 1px solid #eef2f6; padding-bottom: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em;">Contact Information</h3>
+      
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
+        <tr>
+          <td style="padding: 12px 0; font-weight: 600; color: #555555; width: 35%; font-size: 14px;">Name</td>
+          <td style="padding: 12px 0; color: #111111; font-size: 14px; font-weight: 600;">{name}</td>
+        </tr>
+        <tr style="border-top: 1px solid #f6f9fc;">
+          <td style="padding: 12px 0; font-weight: 600; color: #555555; font-size: 14px;">Phone</td>
+          <td style="padding: 12px 0; color: #ff9500; font-size: 14px; font-weight: 700;">{phone}</td>
+        </tr>
+        <tr style="border-top: 1px solid #f6f9fc;">
+          <td style="padding: 12px 0; font-weight: 600; color: #555555; font-size: 14px;">Email</td>
+          <td style="padding: 12px 0; color: #111111; font-size: 14px;"><a href="mailto:{email_raw}" style="color: #0b1c3f; text-decoration: none; font-weight: 600;">{email}</a></td>
+        </tr>
+        <tr style="border-top: 1px solid #f6f9fc;">
+          <td style="padding: 12px 0; font-weight: 600; color: #555555; font-size: 14px;">Company</td>
+          <td style="padding: 12px 0; color: #111111; font-size: 14px;">{company}</td>
+        </tr>
+        <tr style="border-top: 1px solid #f6f9fc;">
+          <td style="padding: 12px 0; font-weight: 600; color: #555555; font-size: 14px;">Service Interest</td>
+          <td style="padding: 12px 0; color: #0b1c3f; font-size: 14px; font-weight: 600;">{service}</td>
+        </tr>
+        <tr style="border-top: 1px solid #f6f9fc;">
+          <td style="padding: 12px 0; font-weight: 600; color: #555555; font-size: 14px;">SMS Consent</td>
+          <td style="padding: 12px 0; color: #111111; font-size: 14px;">
+            <span style="background: {consent_bg}; color: {consent_color}; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; display: inline-block;">
+              {consent_text}
+            </span>
+          </td>
+        </tr>
+      </table>
+
+      {budget_section}
+      {message_section}
+      
+    </div>
+    
+    <!-- Footer Section -->
+    <div style="background: #f8fafc; padding: 20px; text-align: center; border-top: 1px solid #eef2f6; font-size: 11px; color: #64748b;">
+      This is an automated lead notification from your website.
+    </div>
+  </div>
+</div>
