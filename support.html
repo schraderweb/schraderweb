@@ -66,6 +66,49 @@ src="https://www.facebook.com/tr?id=187480363398936&ev=PageView&noscript=1"
             #header.custom-navbar {
                 opacity: 1 !important;
             }
+            .support-hero-container {
+                position: relative;
+                z-index: 5;
+                height: 100%;
+                min-height: calc(100vh - 75px);
+                display: flex;
+                align-items: center;
+                padding-top: 100px;
+                padding-bottom: 50px;
+            }
+            .support-hero-content {
+                max-width: 580px;
+            }
+            .support-hero-title {
+                color: #ffffff;
+                font-size: clamp(40px, 5.5vw, 64px);
+                font-weight: 900;
+                line-height: 1.1;
+                font-family: 'Montserrat', sans-serif;
+                margin-bottom: 20px;
+                text-transform: uppercase;
+                letter-spacing: -0.01em;
+                text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            }
+            .support-hero-text {
+                color: #c7d6f5;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 1.6;
+                margin: 0;
+                text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            }
+            @media (max-width: 991px) {
+                .support-hero-container {
+                    padding-left: 24px;
+                    padding-right: 24px;
+                    justify-content: center;
+                    text-align: center;
+                }
+                .support-hero-text {
+                    font-size: 18px;
+                }
+            }
         </style>
         <header id="header" class="clearfix custom-navbar">
             <div class="container menu-container">
@@ -160,6 +203,12 @@ src="https://www.facebook.com/tr?id=187480363398936&ev=PageView&noscript=1"
 
   <div class="slide-dark content-align-top-sm content-align-top-md support-page" id="sectionHomeContact" style="min-height:100vh;">
     <div class="fp-bg"></div>
+    <div class="container support-hero-container">
+      <div class="support-hero-content">
+        <h1 class="support-hero-title">Need Support?</h1>
+        <p class="support-hero-text">Please use the form below to send a ticket</p>
+      </div>
+    </div>
   </div>
 
   <!-- Serving Section / Maps -->
