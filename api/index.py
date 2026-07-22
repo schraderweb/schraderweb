@@ -1,7 +1,7 @@
 import os
+import requests
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from supabase import create_client
 import resend
 
 app = Flask(__name__)
@@ -27,8 +27,6 @@ required = {
 missing = [k for k, v in required.items() if not v]
 if missing:
     raise RuntimeError("Missing environment variables: " + ", ".join(missing))
-
-supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 if RESEND_API_KEY:
     resend.api_key = RESEND_API_KEY
@@ -188,21 +186,33 @@ def submit_form():
             "consent": consent,
         }
 
-        try:
-            inserted = (supabase.table(SUPABASE_TABLE).insert(row).execute())
-        except Exception:
-            try:
-                row_with_company = {**row_base, "company": company or None}
-                inserted = (supabase.table(SUPABASE_TABLE).insert(row_with_company).execute())
-            except Exception:
-                inserted = (supabase.table(SUPABASE_TABLE).insert(row_base).execute())
+        headers = {
+            "apikey": SUPABASE_KEY,
+            "Authorization": f"Bearer {SUPABASE_KEY}",
+            "Content-Type": "application/json",
+            "Prefer": "return=representation",
+        }
+
+        payloads = [row, {**row_base, "company": company or None}, row_base]
+
+        inserted_data = None
+        for payload in payloads:
+            resp = requests.post(
+                f"{SUPABASE_URL}/rest/v1/{SUPABASE_TABLE}",
+                json=payload,
+                headers=headers,
+                timeout=10,
+            )
+            if resp.ok:
+                inserted_data = resp.json()
+                break
 
         email_result = send_email_notification(row)
 
         return jsonify({
             "success": True,
             "message": "Form submitted successfully",
-            "data": inserted.data,
+            "data": inserted_data,
             "email_notified": email_result is not None,
         }), 200
 
