@@ -141,7 +141,7 @@
   <div class="wrap">
     <div class="card">
       <h1>Contact Us</h1>
-      <p>Fill out the form below and we will receive your submission, save it to Supabase, and send text messages to both you and the business owner.</p>
+      <p>Fill out the form below and we will receive your submission, save it to our system, and send text messages to both you and the business owner.</p>
 
       <form id="contactForm">
         <div>
@@ -195,7 +195,7 @@
       const payload = Object.fromEntries(new FormData(form).entries());
 
       try {
-        const response = await fetch('/', {
+        const response = await fetch('/api', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
