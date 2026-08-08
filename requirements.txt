@@ -2,3 +2,4 @@ Flask
 flask-cors
 requests
 resend
+python-dotenv

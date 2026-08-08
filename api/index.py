@@ -3,6 +3,9 @@ import requests
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import resend
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app, origins=[
@@ -11,17 +14,16 @@ CORS(app, origins=[
     "https://schraderweb-azure.vercel.app"
 ])
 
-SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY")
-SUPABASE_TABLE = os.getenv("SUPABASE_TABLE", "form_submissions")
+TURSO_DATABASE_URL = os.getenv("TURSO_DATABASE_URL")
+TURSO_AUTH_TOKEN = os.getenv("TURSO_AUTH_TOKEN")
 RESEND_API_KEY = os.getenv("RESEND_API_KEY")
 NOTIFICATION_EMAIL = os.getenv("NOTIFICATION_EMAIL", "")
 VTEXT_EMAIL = os.getenv("VTEXT_EMAIL", "")
 EMAIL_FROM = os.getenv("EMAIL_FROM", "noreply@prakhargupta.me")
 
 required = {
-    "SUPABASE_URL": SUPABASE_URL,
-    "SUPABASE_KEY": SUPABASE_KEY,
+    "TURSO_DATABASE_URL": TURSO_DATABASE_URL,
+    "TURSO_AUTH_TOKEN": TURSO_AUTH_TOKEN,
 }
 
 missing = [k for k, v in required.items() if not v]
@@ -163,51 +165,64 @@ def submit_form():
                 "error": "first_name, last_name, and phone are required"
             }), 400
 
-        # Try inserting the complete row including new columns
-        row = {
-            "first_name": first_name,
-            "last_name": last_name,
-            "phone": phone,
-            "email": email or None,
-            "company": company or None,
-            "service": service or None,
-            "consent": consent,
-            "message": message or None,
-            "budget_range": budget_range or None,
-        }
-
-        # Safe fallback in case some schema configurations lack company/message/budget_range columns
-        row_base = {
-            "first_name": first_name,
-            "last_name": last_name,
-            "phone": phone,
-            "email": email or None,
-            "service": service or None,
-            "consent": consent,
-        }
-
         headers = {
-            "apikey": SUPABASE_KEY,
-            "Authorization": f"Bearer {SUPABASE_KEY}",
+            "Authorization": f"Bearer {TURSO_AUTH_TOKEN}",
             "Content-Type": "application/json",
-            "Prefer": "return=representation",
         }
 
-        payloads = [row, {**row_base, "company": company or None}, row_base]
+        turso_http = TURSO_DATABASE_URL.replace("libsql://", "https://").rstrip("/") + "/v2/pipeline"
 
-        inserted_data = None
-        for payload in payloads:
-            resp = requests.post(
-                f"{SUPABASE_URL}/rest/v1/{SUPABASE_TABLE}",
-                json=payload,
-                headers=headers,
-                timeout=10,
-            )
-            if resp.ok:
-                inserted_data = resp.json()
-                break
+        sql = """
+            INSERT INTO leads (first_name, last_name, phone, email, company, service, budget, project_description)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        """
 
-        email_result = send_email_notification(row)
+        def arg(value):
+            if value is None:
+                return {"type": "null"}
+            return {"type": "text", "value": str(value)}
+
+        payload = {
+            "requests": [{
+                "type": "execute",
+                "stmt": {
+                    "sql": sql,
+                    "args": [
+                        arg(first_name),
+                        arg(last_name),
+                        arg(phone),
+                        arg(email),
+                        arg(company),
+                        arg(service),
+                        arg(budget_range),
+                        arg(message),
+                    ],
+                },
+            }]
+        }
+
+        resp = requests.post(turso_http, json=payload, headers=headers, timeout=10)
+        result = resp.json().get("results", [{}])[0] if resp.ok else {}
+        if not resp.ok or result.get("type") == "error":
+            error = result.get("error", {})
+            return jsonify({
+                "success": False,
+                "error": f"Database insert failed: {error}",
+            }), 500
+
+        inserted_data = result.get("response", {}).get("result", {})
+
+        email_result = send_email_notification({
+            "first_name": first_name,
+            "last_name": last_name,
+            "phone": phone,
+            "email": email,
+            "company": company,
+            "service": service,
+            "consent": consent,
+            "message": message,
+            "budget_range": budget_range,
+        })
 
         return jsonify({
             "success": True,
